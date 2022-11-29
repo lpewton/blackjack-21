@@ -6,7 +6,6 @@ document.getElementById("take-one").addEventListener ("click" , takeOne);
 function takeOne() {
     let card = Math.floor(Math.random()*6);
     console.log(card);
-
     let firstCard = document.getElementById("your-hand");
     firstCard.setAttribute('src', `/assets/images/${card}.png`);
 };
