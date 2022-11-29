@@ -1,0 +1,50 @@
+body {
+    background-color: green;
+}
+
+#rules {
+    background-color: red;
+    color: black;
+    font-size: x-large;
+    text-decoration: none;
+    padding: 7px;
+    border-radius: 20%;
+    position: relative;
+    left: 40px;
+    top: 20px;
+}
+
+#rules:hover {
+    background-color: black;
+    color: red;
+}
+
+.hand {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0px;
+}
+
+img {
+    height: 250px;
+}
+
+#buttons-div {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background-color: red;
+    border: black;
+    font-size: xx-large;
+    padding: 10px;
+    margin: 0px 10px;
+    border-radius: 15%;
+    width: 152px;
+}
+
+button:hover {
+    background-color: black;
+    color: red;
+}
