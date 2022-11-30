@@ -27,6 +27,8 @@ body {
 
 img {
     height: 250px;
+    width: 140px;
+    border-radius: 10%;
 }
 
 #buttons-div {
