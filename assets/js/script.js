@@ -31,29 +31,31 @@ function takeOne() {
 /**
  * Gives a card to computer and stores its value into an array
  */
-function computerTakesOne() {
+ function computerTakesOne() {
     let card = Math.floor(Math.random()*52);
     let computerHandDiv = document.getElementById("computer-hand-div");
 
     if (usedCards.includes(card)) {
         computerTakesOne();
     } else {
-        let firstCard = document.createElement("img");
-        computerHandDiv.appendChild(firstCard);
-        firstCard.setAttribute("class" , "computer-hand")
-        firstCard.setAttribute('src', `assets/images/reverse.png`);
+        let secondCard = document.createElement("img");
+        computerHandDiv.appendChild(secondCard);
+        secondCard.setAttribute("class" , "computer-hand")
+        secondCard.setAttribute('src', `assets/images/reverse.png`);
         
         usedCards.push(card);
         computerCards.push(card);
 
         if (playerCards < 21) {
             countComputerCards();
+        } else {
+            endGame();
         }
     }
 }
 
 /**
- * Counts the cards in each hand
+ * Counts the cards in the player's hand
  */
  function countPlayerCards() {
 
@@ -72,11 +74,14 @@ function computerTakesOne() {
             }
         } else if (32 <= playerCards[i] <= 47) {
             value = value + 10;
-    }
+        }
     }
  }
 
- function countComputerCards() {
+ /**
+ * Counts the cards in the computer's hand
+ */
+  function countComputerCards() {
 
     computerCards.sort();
 
@@ -90,7 +95,7 @@ function computerTakesOne() {
                 value = value + 11;
             } else if ((value + 11) > 30){
                 value = value + 1;
-            } 
+            }
         } else if (32 <= computerCards[i] <= 47) {
             value = value + 10;
         }
