@@ -1,7 +1,7 @@
 document.getElementById("take-one").addEventListener ("click" , takeOne);
 
-let playerCards = 0;
-let computerCards = 0;
+let playerCards = [];
+let computerCards = [];
 let usedCards = [];
 
 /**
@@ -9,7 +9,7 @@ let usedCards = [];
  */
 function takeOne() {
 
-    let card = Math.floor(Math.random()*52);
+    let card = Math.floor(Math.random() * 52);
     let playerHandDiv = document.getElementById("player-hand-div");
 
     if (usedCards.includes(card)) {
@@ -19,15 +19,13 @@ function takeOne() {
         playerHandDiv.appendChild(firstCard);
         firstCard.setAttribute("class" , "player-hand");
         firstCard.setAttribute('src', `assets/images/${card}.png`);
-
-        playerCards = playerCards + Math.ceil(card / 4 + 0.1);
-        usedCards.push(card);
-
-        computerTakesOne();
-        countCards();
-
-        console.log("player: " + playerCards);
     }
+    
+    usedCards.push(card);
+    playerCards.push(card);
+
+    computerTakesOne();
+    countPlayerCards();
 }
 
 /**
@@ -42,25 +40,59 @@ function computerTakesOne() {
     } else {
         let firstCard = document.createElement("img");
         computerHandDiv.appendChild(firstCard);
-        firstCard.setAttribute("id" , "computer-hand")
+        firstCard.setAttribute("class" , "computer-hand")
         firstCard.setAttribute('src', `assets/images/reverse.png`);
         
-        computerCards = computerCards + Math.ceil(card / 4 + 0.1);
         usedCards.push(card);
+        computerCards.push(card);
 
-        countCards();
-
-        console.log("computer:" + computerCards);
-        console.log("used:" + usedCards);
+        if (playerCards < 21) {
+            countComputerCards();
+        }
     }
 }
 
 /**
  * Counts the cards in each hand
  */
-function countCards(sum1, sum2) {
-    if (playerCards > 21) {
-        alert("Oh no! You lost!")
-    }
-}
+ function countPlayerCards() {
 
+    playerCards.sort();
+
+    let value = 0;
+
+    for (let i = 0; i < playerCards.length; i++) {
+        if (playerCards[i] <= 31) {
+            value = value + Math.ceil(playerCards[i] / 4 + 1.1);
+        } else if (playerCards[i] >= 48) {
+            if ((value + 11) < 30) {
+                value = value + 11;
+            } else if ((value + 11) > 30){
+                value = value + 1;
+            }
+        } else if (32 <= playerCards[i] <= 47) {
+            value = value + 10;
+    }
+    }
+ }
+
+ function countComputerCards() {
+
+    computerCards.sort();
+
+    let value = 0;
+
+    for (let i = 0; i < computerCards.length; i++) {
+        if (computerCards[i] <= 31) {
+            value = value + Math.ceil(computerCards[i] / 4 + 1.1);
+        } else if (computerCards[i] >= 48) {
+            if ((value + 11) < 30) {
+                value = value + 11;
+            } else if ((value + 11) > 30){
+                value = value + 1;
+            } 
+        } else if (32 <= computerCards[i] <= 47) {
+            value = value + 10;
+        }
+    }
+ }
