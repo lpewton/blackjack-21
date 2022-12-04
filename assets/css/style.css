@@ -1,9 +1,9 @@
 body {
-    background-color: green;
+    background-color: #116D31;
 }
 
 #rules {
-    background-color: red;
+    background-color: #95190C;
     color: black;
     font-size: x-large;
     text-decoration: none;
@@ -16,7 +16,7 @@ body {
 
 #rules:hover {
     background-color: black;
-    color: red;
+    color: #95190C;
 }
 
 .hand {
@@ -37,7 +37,7 @@ img {
 }
 
 button {
-    background-color: red;
+    background-color: #ff3322;
     border: black;
     font-size: xx-large;
     padding: 10px;
@@ -48,5 +48,14 @@ button {
 
 button:hover {
     background-color: black;
-    color: red;
+    color: #D91600
+}
+
+#losing-div {
+    color: black;
+    text-align: center;
+}
+
+#losing-number {
+    coor: red;
 }

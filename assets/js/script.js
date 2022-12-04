@@ -82,9 +82,15 @@ function takeOne() {
     if (playerValue > 21) {
       let takeOne = document.getElementsByTagName('button')[0];
       let fold = document.getElementsByTagName('button')[1];
+
       takeOne.remove();
       fold.remove();
-    }
+
+      let losingDiv = document.getElementById("losing-div");
+      let losingHeading = document.createElement("h1");
+      losingHeading.innerHTML = `Oh no! Your score is ${playerValue}... You lost!`;
+      losingDiv.appendChild(losingHeading);
+        }
  }
 
  /**
