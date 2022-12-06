@@ -14,6 +14,8 @@ function takeOne() {
     let card = Math.floor(Math.random() * 52);
     let playerHandDiv = document.getElementById("player-hand-div");
 
+    playerHandDiv.style.backgroundColor = "#116D31";
+
     if (usedCards.includes(card)) {
         takeOne();
     } else {
@@ -36,6 +38,8 @@ function takeOne() {
  function computerTakesOne() {
     let card = Math.floor(Math.random()*52);
     let computerHandDiv = document.getElementById("computer-hand-div");
+
+    computerHandDiv.style.backgroundColor = "#116D31";
 
     if (computerValue < 17) {
         if (usedCards.includes(card)) {
@@ -69,9 +73,9 @@ function takeOne() {
         if (playerCards[i] <= 31) {
             playerValue = playerValue + Math.ceil(playerCards[i] / 4 + 1.1);
         } else if (playerCards[i] >= 48) {
-            if ((playerValue + 11) < 30) {
+            if ((playerValue + 11) < 21) {
                 playerValue = playerValue + 11;
-            } else if ((playerValue + 11) > 30){
+            } else if ((playerValue + 11) > 21){
                 playerValue = playerValue + 1;
             }
         } else if (32 <= playerCards[i] <= 47) {
