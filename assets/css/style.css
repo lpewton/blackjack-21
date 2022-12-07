@@ -26,7 +26,6 @@ body {
     height: 150px;
     width: 140px;
     margin: 50px auto;
-    backround-color: darkgreen;
 }
 
 img {
@@ -35,6 +34,7 @@ img {
     border-radius: 10%;
     position: relative;
     bottom: 50px;
+    z-index: 1;
 }
 
 #buttons-div {
@@ -57,11 +57,30 @@ button:hover {
     color: #D91600
 }
 
-#losing-div {
-    color: black;
+#announcements-div {
     text-align: center;
 }
 
-#losing-number {
-    coor: red;
+#computer-value {
+    z-index: 2;
+    position: absolute;
+    top: 170px;
+    left: 47%;
+    width: fit-content;
+    font-size: 500%;
+    margin: 0px;
+    background-color: black;
+    padding: 0px 5px;
+}
+
+#player-value {
+    z-index: 2;
+    position: absolute;
+    top: 580px;
+    left: 47%;
+    width: fit-content;
+    font-size: 500%;
+    margin: 0px;
+    background-color: black;
+    padding: 0px 5px;
 }
