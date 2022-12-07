@@ -95,6 +95,8 @@ function takeOne() {
       let losingDiv = document.getElementById("announcements-div");
       let losingHeading = document.createElement("h1");
       losingHeading.innerHTML = `Oh no! Your score is ${playerValue}... You lost!`;
+      losingHeading.style.color = "red";
+      losingHeading.style.padding = "5px";
       losingDiv.appendChild(losingHeading);
         }
     }
@@ -110,7 +112,7 @@ function takeOne() {
     for (let i = 0; i < computerCards.length; i++) {
         if (computerCards[i] <= 31) {
             computerValue = computerValue + Math.ceil(computerCards[i] / 4 + 1.1);
-        } else if (computerValue[i] >= 48) {
+        } else if (computerCards[i] >= 48) {
             if ((computerValue + 11) <= 21) {
                 computerValue = computerValue + 11;
             } else if ((computerValue + 11) > 21){
@@ -153,7 +155,7 @@ function fold() {
     } else if (playerValue < computerValue) {
         computerResult.style.color = "green";
         playerResult.style.color = "red";
-    } else if (playerResult === computerResult) {
+    } else if (playerValue === computerValue) {
         computerResult.style.color = "gray";
         playerResult.style.color = "gray";
     }
@@ -161,8 +163,9 @@ function fold() {
     if (computerResult.style.color === "red") {
         let winDiv = document.getElementById("announcements-div");
         let winHeading = document.createElement("h1");
-        winHeading.style.color = "black";
+        winHeading.style.color = "green";
         winHeading.innerHTML = `You won!`;
+        winHeading.style.padding = "5px";
         winDiv.appendChild(winHeading);
     }
 
@@ -171,6 +174,7 @@ function fold() {
         let loseHeading = document.createElement("h1");
         loseHeading.style.color = "red";
         loseHeading.innerHTML = `You lost...`;
+        loseHeading.style.padding = "5px";
         loseDiv.appendChild(loseHeading);
     }
 
@@ -179,6 +183,7 @@ function fold() {
         let drawHeading = document.createElement("h1");
         drawHeading.style.color = "gray";
         drawHeading.innerHTML = "Draw!"
+        drawHeading.style.padding = "5px";
         drawDiv.appendChild(drawHeading);
     }
 
