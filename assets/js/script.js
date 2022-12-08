@@ -160,32 +160,42 @@ function fold() {
         playerResult.style.color = "gray";
     }
 
+    let announcementDiv = document.getElementById("announcements-div");
+    let announcement = document.createElement("h1");
+
     if (computerResult.style.color === "red") {
-        let winDiv = document.getElementById("announcements-div");
-        let winHeading = document.createElement("h1");
-        winHeading.style.color = "green";
-        winHeading.innerHTML = `You won!`;
-        winHeading.style.padding = "5px";
-        winDiv.appendChild(winHeading);
+        announcement.style.color = "green";
+        announcement.innerHTML = `You won!`;
+        announcement.style.padding = "5px";
+        announcementDiv.appendChild(announcement);
     }
 
     if (computerResult.style.color === "green") {
-        let loseDiv = document.getElementById("announcements-div");
-        let loseHeading = document.createElement("h1");
-        loseHeading.style.color = "red";
-        loseHeading.innerHTML = `You lost...`;
-        loseHeading.style.padding = "5px";
-        loseDiv.appendChild(loseHeading);
+        announcement.style.color = "red";
+        announcement.innerHTML = `You lost...`;
+        announcement.style.padding = "5px";
+        announcementDiv.appendChild(announcement);
     }
 
     if (computerResult.style.color === "gray") {
-        let drawDiv = document.getElementById("announcements-div");
-        let drawHeading = document.createElement("h1");
-        drawHeading.style.color = "gray";
-        drawHeading.innerHTML = "Draw!"
-        drawHeading.style.padding = "5px";
-        drawDiv.appendChild(drawHeading);
+        announcement.style.color = "gray";
+        announcement.innerHTML = `Draw!`;
+        announcement.style.padding = "5px";
+        announcementDiv.appendChild(announcement);
     }
 
+    setTimeout(() => {
+        announcement.remove();
+        let restartButton = document.createElement("button");
+        announcementDiv.appendChild(restartButton);
+        restartButton.setAttribute("id" , "restart-button");
+        restartButton.innerHTML = 'Retry <i class="fa-solid fa-arrows-spin"></i>'
+        announcementDiv.style.backgroundColor = "#116D31"
+
+    }, 5000);
 }
 
+function restartGame() {
+    computerValue = 1000;
+    console.log(computerValue);
+}
