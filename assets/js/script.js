@@ -53,7 +53,7 @@ function takeOne() {
         } else {
             let secondCard = document.createElement("img");
             computerHandDiv.appendChild(secondCard);
-            secondCard.setAttribute("class" , "computer-hand")
+            secondCard.setAttribute("class" , "computer-hand");
             secondCard.setAttribute('src', `assets/images/reverse.png`);
 
             usedCards.push(card);
@@ -192,10 +192,14 @@ function fold() {
         restartButton.innerHTML = 'Retry <i class="fa-solid fa-arrows-spin"></i>'
         announcementDiv.style.backgroundColor = "#116D31"
 
+        document.getElementById("restart-button").addEventListener ("click" , restartGame);
+
     }, 5000);
 }
 
+/**
+ * Resets all values and restarts game
+ */
 function restartGame() {
-    computerValue = 1000;
-    console.log(computerValue);
+    window.location.reload()
 }

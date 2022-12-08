@@ -3,7 +3,7 @@ body {
 }
 
 #rules {
-    background-color: #95190C;
+    background-color: #ff3322;
     color: black;
     font-size: x-large;
     text-decoration: none;
@@ -16,7 +16,7 @@ body {
 
 #rules:hover {
     background-color: black;
-    color: #95190C;
+    color: #ff3322;
 }
 
 .hand {
@@ -54,7 +54,7 @@ button {
 
 button:hover {
     background-color: black;
-    color: #D91600
+    color: #ff3322
 }
 
 #announcements-div {
