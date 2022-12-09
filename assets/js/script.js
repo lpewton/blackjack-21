@@ -1,3 +1,4 @@
+document.getElementById("back-button").addEventListener ("click" , begin);
 document.getElementById("take-one").addEventListener ("click" , takeOne);
 document.getElementById("fold").addEventListener ("click" , fold);
 
@@ -6,6 +7,14 @@ let computerCards = [];
 let usedCards = [];
 let computerValue = 0;
 let playerValue = 0;
+
+/**
+ * Shows the rules division
+ */
+function begin() {
+    let rulesDiv = document.getElementById("rules-div");
+    rulesDiv.remove();
+}
 
 /**
  *  Gives player 1 card and stores it into an array
@@ -86,18 +95,30 @@ function takeOne() {
     }
 
     if (playerValue > 21) {
-      let takeOne = document.getElementsByTagName('button')[0];
-      let fold = document.getElementsByTagName('button')[1];
+      let takeOne = document.getElementById('take-one');
+      let fold = document.getElementById('fold');
 
       takeOne.remove();
       fold.remove();
 
-      let losingDiv = document.getElementById("announcements-div");
-      let losingHeading = document.createElement("h1");
-      losingHeading.innerHTML = `Oh no! Your score is ${playerValue}... You lost!`;
-      losingHeading.style.color = "red";
-      losingHeading.style.padding = "5px";
-      losingDiv.appendChild(losingHeading);
+      let announcementDiv = document.getElementById("announcements-div");
+      let announcement = document.createElement("h1");
+      announcement.innerHTML = `Oh no! Your score is ${playerValue}... You lost!`;
+      announcement.style.color = "red";
+      announcement.style.padding = "5px";
+      announcementDiv.appendChild(announcement);
+
+      setTimeout(() => {
+        announcement.remove();
+        let restartButton = document.createElement("button");
+        announcementDiv.appendChild(restartButton);
+        restartButton.setAttribute("id" , "restart-button");
+        restartButton.innerHTML = 'Retry <i class="fa-solid fa-arrows-spin"></i>'
+        announcementDiv.style.backgroundColor = "#116D31"
+
+        document.getElementById("restart-button").addEventListener ("click" , restartGame);
+
+    }, 5000);
         }
     }
 
@@ -128,8 +149,8 @@ function takeOne() {
    * Gives out each player's score and determines the winner
    */
 function fold() {
-    let takeOneButton = document.getElementsByTagName('button')[0];
-    let foldButton = document.getElementsByTagName('button')[1];
+    let takeOneButton = document.getElementById('take-one');
+    let foldButton = document.getElementById('fold');
 
     takeOneButton.remove();
     foldButton.remove();

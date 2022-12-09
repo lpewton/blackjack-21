@@ -1,15 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+
 body {
+    font-family: 'Raleway', sans-serif;
     background-color: #116D31;
 }
 
-#rules {
+#rules-button {
     background-color: #ff3322;
     color: black;
-    font-size: x-large;
+    font-size: large;
     text-decoration: none;
     padding: 7px;
     border-radius: 20%;
-    margin: 30px;
     position: relative;
     top: 20px;
 }
@@ -17,6 +19,29 @@ body {
 #rules:hover {
     background-color: black;
     color: #ff3322;
+}
+
+#rules-div {
+    position: absolute;
+    left: 37%;
+    top: 20%;
+    text-align: center;
+    background-color: red;
+    padding-right: 40px;
+}
+
+ul {
+    list-style: none;
+}
+
+#back-button {
+    font-size: small;
+    background-color: darkred;
+}
+
+#deck {
+    position: absolute;
+    bottom: 280px;
 }
 
 .hand {
