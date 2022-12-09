@@ -1,6 +1,6 @@
-document.getElementById("back-button").addEventListener ("click" , begin);
+document.getElementById("rules-button").addEventListener ("click" , showRules);
 document.getElementById("take-one").addEventListener ("click" , takeOne);
-document.getElementById("fold").addEventListener ("click" , fold);
+document.getElementById("back-button").addEventListener ("click" , begin);
 
 let playerCards = [];
 let computerCards = [];
@@ -8,12 +8,17 @@ let usedCards = [];
 let computerValue = 0;
 let playerValue = 0;
 
+function showRules() {
+    let rulesDiv = document.getElementById("rules-div");
+    rulesDiv.style.visibility = "visible";
+}
+
 /**
- * Shows the rules division
+ * Makes the rules division invisible
  */
 function begin() {
     let rulesDiv = document.getElementById("rules-div");
-    rulesDiv.remove();
+    rulesDiv.style.visibility = "hidden";
 }
 
 /**
@@ -42,6 +47,8 @@ function takeOne() {
         if (computerValue < 17) {
         computerTakesOne();
         }
+
+        document.getElementById("fold").addEventListener ("click" , fold);
 
         countPlayerCards();
     }

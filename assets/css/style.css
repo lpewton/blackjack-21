@@ -16,18 +16,26 @@ body {
     top: 20px;
 }
 
-#rules:hover {
+button:hover {
     background-color: black;
     color: #ff3322;
 }
 
 #rules-div {
-    position: absolute;
-    left: 37%;
-    top: 20%;
+    height: 80vh;
+    width: 40vw;
+    margin: auto;
     text-align: center;
     background-color: red;
     padding-right: 40px;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 30%;
+    visibility: hidden;
+    z-index: 3;
 }
 
 ul {
@@ -36,12 +44,13 @@ ul {
 
 #back-button {
     font-size: small;
-    background-color: darkred;
+    margin-top: 10px;
 }
 
 #deck {
     position: absolute;
     bottom: 280px;
+    left: 10%;
 }
 
 .hand {
@@ -54,8 +63,8 @@ ul {
 }
 
 img {
-    height: 250px;
-    width: 140px;
+    height: 230px;
+    width: 130px;
     border-radius: 10%;
     position: relative;
     bottom: 50px;
@@ -77,7 +86,7 @@ button {
     width: 152px;
 }
 
-button:hover {
+#back-button:hover {
     background-color: black;
     color: #ff3322
 }
@@ -111,4 +120,10 @@ button:hover {
     margin: 0px;
     background-color: black;
     padding: 0px 5px;
+}
+
+@media (max-width: 600px) {
+    body {
+        fot-size: xx-small;
+    }
 }
