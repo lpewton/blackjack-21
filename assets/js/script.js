@@ -7,6 +7,9 @@ let usedCards = [];
 let computerValue = 0;
 let playerValue = 0;
 
+/**
+ * Pops rules div up
+ */
 function showRules() {
     let rulesDiv = document.getElementById("rules-div");
     rulesDiv.style.visibility = "visible";
