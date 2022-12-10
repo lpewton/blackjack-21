@@ -24,7 +24,7 @@ body {
 
 #rules-div {
     height: 80vh;
-    width: 40vw;
+    width: 50vw;
     margin: auto;
     text-align: center;
     background-color: red;
@@ -118,5 +118,54 @@ button:hover {
     padding: 0px 5px;
 }
 
-@media (max-width: 600px) {
+/*Add responsiveness*/
+
+@media (max-width: 1000px) {
+    #deck {
+        visibility: hidden;
+    }
+
+    img {
+        height: 200px;
+        width: 100px;
+    }
+
+    .hand {
+        padding: 20px 0px;
+        margin-top: 50px;
+        margin-bottom: 20px;
+    }
+
+    #rules-div {
+        margin-top: 20px;
+    }
+
+    #rules-button {
+        font-size: small;
+    }
+
+    button {
+        font-size: large;
+        padding: 10px;
+        margin: 0px 10px;
+        width: 100px;
+    }
+
+    #announcements-div {
+        font-size: x-small;
+    }
+
+    #computer-value {
+        position: absolute;
+        top: 150px;
+        left: 46%;
+        font-size: 350%;
+    }
+
+    #player-value {
+        position: absolute;
+        top: 460px;
+        left: 46%;
+        font-size: 350%;
+    }
 }
