@@ -16,7 +16,8 @@ body {
     top: 20px;
 }
 
-button:hover {
+
+#rules-button:hover {
     background-color: black;
     color: #ff3322;
 }
@@ -40,11 +41,6 @@ button:hover {
 
 ul {
     list-style: none;
-}
-
-#back-button {
-    font-size: small;
-    margin-top: 10px;
 }
 
 #deck {
@@ -86,9 +82,9 @@ button {
     width: 152px;
 }
 
-#back-button:hover {
+button:hover {
     background-color: black;
-    color: #ff3322
+    color: #ff3322;
 }
 
 #announcements-div {
@@ -123,7 +119,4 @@ button {
 }
 
 @media (max-width: 600px) {
-    body {
-        fot-size: xx-small;
-    }
 }

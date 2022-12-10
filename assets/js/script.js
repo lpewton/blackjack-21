@@ -1,6 +1,5 @@
 document.getElementById("rules-button").addEventListener ("click" , showRules);
 document.getElementById("take-one").addEventListener ("click" , takeOne);
-document.getElementById("back-button").addEventListener ("click" , begin);
 
 let playerCards = [];
 let computerCards = [];
@@ -11,14 +10,21 @@ let playerValue = 0;
 function showRules() {
     let rulesDiv = document.getElementById("rules-div");
     rulesDiv.style.visibility = "visible";
+    let rulesButton = document.getElementById("rules-button");
+    rulesButton.innerHTML = "Back to game";
+    document.getElementById("rules-button").addEventListener ("click" , backToGame);
 }
 
 /**
  * Makes the rules division invisible
  */
-function begin() {
+function backToGame() {
     let rulesDiv = document.getElementById("rules-div");
     rulesDiv.style.visibility = "hidden";
+    let rulesButton = document.getElementById("rules-button");
+    rulesButton.innerHTML = "How to play?";
+    document.getElementById("rules-button").removeEventListener ("click" , backToGame);
+    document.getElementById("rules-button").addEventListener ("click" , showRules);
 }
 
 /**
