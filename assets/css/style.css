@@ -28,7 +28,6 @@ body {
     margin: auto;
     text-align: center;
     background-color: red;
-    padding-right: 40px;
     margin-top: 50px;
     display: flex;
     align-items: center;
@@ -37,6 +36,8 @@ body {
     left: 30%;
     visibility: hidden;
     z-index: 3;
+    padding-right: 40px;
+
 }
 
 ul {
@@ -90,8 +91,8 @@ button:hover {
 #announcements-div {
     text-align: center;
     width: fit-content;
-    background-color: black;
     margin: auto;
+    background-color: blue;
 }
 
 #computer-value {
@@ -126,18 +127,19 @@ button:hover {
     }
 
     img {
-        height: 200px;
-        width: 100px;
+        height: 220px;
+        width: 120px;
     }
 
     .hand {
         padding: 20px 0px;
-        margin-top: 50px;
-        margin-bottom: 20px;
+        margin-top: 70px;
+        margin-bottom: 40px;
     }
 
     #rules-div {
         margin-top: 20px;
+        width: 55vw;
     }
 
     #rules-button {
@@ -164,8 +166,43 @@ button:hover {
 
     #player-value {
         position: absolute;
-        top: 460px;
+        top: 500px;
         left: 46%;
         font-size: 350%;
+    }
+}
+
+@media (max-width: 400px) {
+    img {
+        height: 150px;
+        width: 60px;
+    }
+
+    .hand {
+        padding: 0px;
+        margin-top: 90px;
+        margin-bottom: 0px;
+    }
+
+    #computer-value {
+        position: absolute;
+        top: 130px;
+        left: 43%;
+        font-size: 200%;
+    }
+
+    #player-value {
+        position: absolute;
+        top: 425px;
+        left: 43%;
+        font-size: 200%;
+    }
+
+    #rules-div {
+        font-size: small;
+    }
+
+    ul {    
+        font-size: smaller;
     }
 }

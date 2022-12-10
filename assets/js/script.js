@@ -121,19 +121,14 @@ function takeOne() {
       announcement.style.padding = "5px";
       announcementDiv.appendChild(announcement);
 
-      setTimeout(() => {
-        announcement.remove();
-        let restartButton = document.createElement("button");
-        announcementDiv.appendChild(restartButton);
-        restartButton.setAttribute("id" , "restart-button");
-        restartButton.innerHTML = 'Retry <i class="fa-solid fa-arrows-spin"></i>'
-        announcementDiv.style.backgroundColor = "#116D31"
-
-        document.getElementById("restart-button").addEventListener ("click" , restartGame);
-
-    }, 5000);
-        }
+      let restartButton = document.createElement("button");
+      announcement.appendChild(restartButton);
+      restartButton.setAttribute("id" , "restart-button");
+      restartButton.innerHTML = 'Retry <i class="fa-solid fa-arrows-spin"></i>'
+      
+      document.getElementById("restart-button").addEventListener ("click" , restartGame);
     }
+}
 
  /**
  * Counts the cards in the computer's hand
@@ -217,18 +212,13 @@ function fold() {
         announcement.style.padding = "5px";
         announcementDiv.appendChild(announcement);
     }
+    
+    let restartButton = document.createElement("button");
+    announcement.appendChild(restartButton);
+    restartButton.setAttribute("id" , "restart-button");
+    restartButton.innerHTML = 'Retry <i class="fa-solid fa-arrows-spin"></i>'
 
-    setTimeout(() => {
-        announcement.remove();
-        let restartButton = document.createElement("button");
-        announcementDiv.appendChild(restartButton);
-        restartButton.setAttribute("id" , "restart-button");
-        restartButton.innerHTML = 'Retry <i class="fa-solid fa-arrows-spin"></i>'
-        announcementDiv.style.backgroundColor = "#116D31"
-
-        document.getElementById("restart-button").addEventListener ("click" , restartGame);
-
-    }, 5000);
+    document.getElementById("restart-button").addEventListener ("click" , restartGame);
 }
 
 /**
