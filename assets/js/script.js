@@ -11,9 +11,12 @@ let playerValue = 0;
  * Pops rules div up
  */
 function showRules() {
+    let body = document.body;
+    body.style.visibility = "hidden";
     let rulesDiv = document.getElementById("rules-div");
     rulesDiv.style.visibility = "visible";
     let rulesButton = document.getElementById("rules-button");
+    rulesButton.style.visibility = "visible";
     rulesButton.innerHTML = "Back to game";
     document.getElementById("rules-button").addEventListener ("click" , backToGame);
 }
@@ -28,6 +31,9 @@ function backToGame() {
     rulesButton.innerHTML = "How to play?";
     document.getElementById("rules-button").removeEventListener ("click" , backToGame);
     document.getElementById("rules-button").addEventListener ("click" , showRules);
+    
+    let body = document.body;
+    body.style.visibility = "visible";
 }
 
 /**
@@ -37,8 +43,6 @@ function takeOne() {
 
     let cardNum = Math.floor(Math.random() * 52);
     let playerHandDiv = document.getElementById("player-hand-div");
-
-    playerHandDiv.style.backgroundColor = "#116D31";
 
     if (usedCards.includes(cardNum)) {
         takeOne();
@@ -120,7 +124,7 @@ function takeOne() {
       let announcementDiv = document.getElementById("announcements-div");
       let announcement = document.createElement("h1");
       announcement.innerHTML = `Oh no! Your score is ${playerValue}... You lost!`;
-      announcement.style.color = "red";
+      announcement.style.color = "#A31621";
       announcement.style.padding = "5px";
       announcementDiv.appendChild(announcement);
 
@@ -203,7 +207,7 @@ function fold() {
     }
 
     if (computerResult.style.color === "green") {
-        announcement.style.color = "red";
+        announcement.style.color = "#A31621";
         announcement.innerHTML = `You lost...`;
         announcement.style.padding = "5px";
         announcementDiv.appendChild(announcement);
