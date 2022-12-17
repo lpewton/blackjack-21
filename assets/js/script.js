@@ -52,6 +52,10 @@ function takeOne() {
         card.setAttribute("class" , "player-hand");
         card.setAttribute('src', `assets/images/${cardNum}.png`);
 
+        let numberOfCards = playerCards.length;
+        let shift = numberOfCards * 50;
+        card.style.right = `${shift}px`;
+
         usedCards.push(cardNum);
         playerCards.push(cardNum);
 
@@ -74,8 +78,6 @@ function takeOne() {
     let card = Math.floor(Math.random()*52);
     let computerHandDiv = document.getElementById("computer-hand-div");
 
-    computerHandDiv.style.backgroundColor = "#116D31";
-
     if (computerValue < 17) {
         if (usedCards.includes(card)) {
         computerTakesOne();
@@ -84,6 +86,10 @@ function takeOne() {
             computerHandDiv.appendChild(secondCard);
             secondCard.setAttribute("class" , "computer-hand");
             secondCard.setAttribute('src', `assets/images/reverse.png`);
+
+            let numberOfCards = computerCards.length;
+            let shift = numberOfCards * 50;
+            secondCard.style.right = `${shift}px`;
 
             usedCards.push(card);
             computerCards.push(card);
@@ -131,7 +137,7 @@ function takeOne() {
       let restartButton = document.createElement("button");
       announcement.appendChild(restartButton);
       restartButton.setAttribute("id" , "restart-button");
-      restartButton.innerHTML = 'Retry <i class="fa-solid fa-arrows-spin"></i>'
+      restartButton.innerHTML = 'Retry <i class="fa-solid fa-arrows-spin"></i>';
       
       document.getElementById("restart-button").addEventListener ("click" , restartGame);
     }
@@ -223,7 +229,7 @@ function fold() {
     let restartButton = document.createElement("button");
     announcement.appendChild(restartButton);
     restartButton.setAttribute("id" , "restart-button");
-    restartButton.innerHTML = 'Retry <i class="fa-solid fa-arrows-spin"></i>'
+    restartButton.innerHTML = 'Retry <i class="fa-solid fa-arrows-spin"></i>';
 
     document.getElementById("restart-button").addEventListener ("click" , restartGame);
 }
@@ -232,5 +238,5 @@ function fold() {
  * Resets all values and restarts game
  */
 function restartGame() {
-    window.location.reload()
+    window.location.reload();
 }

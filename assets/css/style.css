@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Raleway', sans-serif;
-    background-color: #116D31;
+    background-color: #006400;
     z-index: 4;
 }
 
@@ -54,10 +54,10 @@ ul {
 
 .hand {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     padding: 50px 0px;
     height: 150px;
-    width: 140px;
+    width: 20vw;
     margin: 50px auto;
 }
 
@@ -93,15 +93,14 @@ button:hover {
     text-align: center;
     width: fit-content;
     margin: auto;
-    background-color: #0A014F;
+    background-color: #01172F;
     border-radius: 8%;
 }
 
 #computer-value {
     z-index: 2;
     position: absolute;
-    top: 170px;
-    left: 47%;
+    left: 42%;
     width: fit-content;
     font-size: 500%;
     margin: 0px;
@@ -113,7 +112,7 @@ button:hover {
     z-index: 2;
     position: absolute;
     top: 590px;
-    left: 47%;
+    left: 42%;
     width: fit-content;
     font-size: 500%;
     margin: 0px;
@@ -137,6 +136,7 @@ button:hover {
         padding: 20px 0px;
         margin-top: 70px;
         margin-bottom: 40px;
+        width: 30vw;
     }
 
     #rules-button {
@@ -157,41 +157,43 @@ button:hover {
     #computer-value {
         position: absolute;
         top: 150px;
-        left: 46%;
+        left: 40%;
         font-size: 350%;
     }
 
     #player-value {
         position: absolute;
         top: 500px;
-        left: 46%;
+        left: 40%;
         font-size: 350%;
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 720px) {
+
     img {
-        height: 150px;
-        width: 60px;
+        height: 160px;
+        width: 80px;
     }
 
     .hand {
         padding: 0px;
         margin-top: 90px;
-        margin-bottom: 0px;
+        margin-bottom: 15px;
+        width: 60vw;
     }
 
     #computer-value {
         position: absolute;
         top: 130px;
-        left: 43%;
+        left: 25%;
         font-size: 200%;
     }
 
     #player-value {
         position: absolute;
         top: 450px;
-        left: 43%;
+        left: 25%;
         font-size: 200%;
     }
 
