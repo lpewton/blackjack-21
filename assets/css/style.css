@@ -2,13 +2,13 @@
 
 body {
     font-family: 'Raleway', sans-serif;
-    background-color: #006400;
+    background-color: #134713;
     z-index: 4;
 }
 
 #rules-button {
-    background-color: #A31621;
-    color: black;
+    background-color: black;
+    color: white;
     font-size: large;
     text-decoration: none;
     padding: 7px;
@@ -19,27 +19,24 @@ body {
 
 
 #rules-button:hover {
-    background-color: black;
-    color: #A31621;
+    background-color: white;
+    color: black;
 }
 
 #rules-div {
     width: 50vw;
     text-align: center;
     background-color: #A31621;
+    position: fixed;
     margin-top: 50px;
-    position: absolute;
-    left: 30%;
+    margin-left: 25vw;
     visibility: hidden;
-    z-index: 3;
     padding: 10px;
-    border-style: solid;
-    border-width: 10px;
+    border: solid 10px;
 }
 
 #rules-div > h1 {
-    border-style: solid;
-    border-width: 5px;
+    border: solid 10px;
 }
 
 ul {
@@ -48,25 +45,26 @@ ul {
 
 #deck {
     position: absolute;
-    bottom: 280px;
+    bottom: 360px;
     left: 10%;
 }
 
 .hand {
     display: flex;
     justify-content: left;
-    padding: 50px 0px;
-    height: 150px;
-    width: 20vw;
-    margin: 50px auto;
+    align-items: center;
+    height: 230px;
+    width: 50vw;
+    margin: 20px auto;
+    border: solid 10px white;
 }
 
 img {
-    height: 230px;
-    width: 130px;
+    height: 200px;
+    width: 100px;
     border-radius: 10%;
+    margin-left: 5px;
     position: relative;
-    bottom: 50px;
 }
 
 #buttons-div {
@@ -75,9 +73,9 @@ img {
 }
 
 button {
-    background-color: #A31621;
-    border: black;
-    font-size: xx-large;
+    background-color: black;
+    color: gold;
+    font-size: x-large;
     padding: 10px;
     margin: 0px 10px;
     border-radius: 15%;
@@ -85,58 +83,52 @@ button {
 }
 
 button:hover {
-    background-color: black;
-    color: #A31621;
+    background-color: gold;
+    color: black;
 }
 
 #announcements-div {
     text-align: center;
     width: fit-content;
     margin: auto;
-    background-color: #01172F;
-    border-radius: 8%;
+    background-color: rgb(97, 97, 11);
 }
 
 #computer-value {
-    z-index: 2;
     position: absolute;
-    left: 42%;
+    left: 78%;
     width: fit-content;
     font-size: 500%;
     margin: 0px;
-    background-color: black;
     padding: 0px 5px;
 }
 
 #player-value {
-    z-index: 2;
     position: absolute;
-    top: 590px;
-    left: 42%;
+    left: 78%;
     width: fit-content;
     font-size: 500%;
     margin: 0px;
-    background-color: black;
     padding: 0px 5px;
 }
 
 /*Add responsiveness*/
 
-@media (max-width: 1000px) {
+@media (max-width: 1150px) {
     #deck {
         visibility: hidden;
     }
 
     img {
-        height: 220px;
-        width: 120px;
+        height: 130px;
+        width: 90px;
     }
 
     .hand {
-        padding: 20px 0px;
-        margin-top: 70px;
+        height: 150px;
+        padding: 5px;
+        margin-top: 40px;
         margin-bottom: 40px;
-        width: 30vw;
     }
 
     #rules-button {
@@ -144,7 +136,7 @@ button:hover {
     }
 
     button {
-        font-size: large;
+        font-size: small;
         padding: 10px;
         margin: 0px 10px;
         width: 100px;
@@ -155,54 +147,39 @@ button:hover {
     }
 
     #computer-value {
-        position: absolute;
-        top: 150px;
-        left: 40%;
         font-size: 350%;
     }
 
     #player-value {
-        position: absolute;
-        top: 500px;
-        left: 40%;
         font-size: 350%;
     }
 }
 
-@media (max-width: 720px) {
-
-    img {
-        height: 160px;
-        width: 80px;
-    }
-
+@media (max-width: 800px) {
+    
     .hand {
-        padding: 0px;
-        margin-top: 90px;
-        margin-bottom: 15px;
-        width: 60vw;
+        height: 120px;
     }
-
-    #computer-value {
-        position: absolute;
-        top: 130px;
-        left: 25%;
-        font-size: 200%;
-    }
-
-    #player-value {
-        position: absolute;
-        top: 450px;
-        left: 25%;
-        font-size: 200%;
+    img {
+        height: 110px;
+        width: 70px;
     }
 
     #rules-div {
-        font-size: small;
-        margin-top: 30px;
+        font-size: smaller;
+    }
+}
+
+@media (max-width: 400px) {
+    .hand {
+        height: 100px;
+    }
+    img {
+        height: 99px;
+        width: 70px;
     }
 
-    ul {    
-        font-size: smaller;
+    #rules-div {
+        margin-left: 17vw;
     }
 }

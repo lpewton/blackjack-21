@@ -130,8 +130,6 @@ function takeOne() {
       let announcementDiv = document.getElementById("announcements-div");
       let announcement = document.createElement("h1");
       announcement.innerHTML = `Oh no! Your score is ${playerValue}... You lost!`;
-      announcement.style.color = "#A31621";
-      announcement.style.padding = "5px";
       announcementDiv.appendChild(announcement);
 
       let restartButton = document.createElement("button");
@@ -182,6 +180,9 @@ function fold() {
     card.setAttribute('src', `assets/images/${computerCards[i]}.png`);
     }
 
+    let hand = document.getElementsByClassName("hand");
+    hand[0].style.alignItems = "center";
+
     let computerResult = document.getElementById("computer-value");
     computerResult.innerHTML = `${computerValue}`;
 
@@ -189,14 +190,14 @@ function fold() {
     playerResult.innerHTML = `${playerValue}`;
 
     if (computerValue > 21) {
-        computerResult.style.color = "red";
-        playerResult.style.color = "green";
+        computerResult.style.color = "black";
+        playerResult.style.color = "gold";
     } else if (playerValue > computerValue){
-        computerResult.style.color = "red";
-        playerResult.style.color = "green";
+        computerResult.style.color = "black";
+        playerResult.style.color = "gold";
     } else if (playerValue < computerValue) {
-        computerResult.style.color = "green";
-        playerResult.style.color = "red";
+        computerResult.style.color = "gold";
+        playerResult.style.color = "black";
     } else if (playerValue === computerValue) {
         computerResult.style.color = "gray";
         playerResult.style.color = "gray";
@@ -205,24 +206,23 @@ function fold() {
     let announcementDiv = document.getElementById("announcements-div");
     let announcement = document.createElement("h1");
 
-    if (computerResult.style.color === "red") {
-        announcement.style.color = "green";
+    announcementDiv.style.border = "5px solid gold";
+
+    if (computerResult.style.color === "black") {
+        announcement.style.color = "gold";
         announcement.innerHTML = `You won!`;
-        announcement.style.padding = "5px";
         announcementDiv.appendChild(announcement);
     }
 
-    if (computerResult.style.color === "green") {
-        announcement.style.color = "#A31621";
+    if (computerResult.style.color === "gold") {
+        announcement.style.color = "";
         announcement.innerHTML = `You lost...`;
-        announcement.style.padding = "5px";
         announcementDiv.appendChild(announcement);
     }
 
     if (computerResult.style.color === "gray") {
         announcement.style.color = "gray";
         announcement.innerHTML = `Draw!`;
-        announcement.style.padding = "5px";
         announcementDiv.appendChild(announcement);
     }
     
