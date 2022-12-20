@@ -16,6 +16,7 @@ FOTO DE RULES DIV AND BUTTON
 * **Computer's hand**
 This contains the cards that are dealt to the computer, though it only shows the reverse until the player decides to fold, and then it also displays the value of the computer's hand
 
+
 FOTO DE COMUPTER HANDS REVERSE
 
 * **Buttons and announcement division:**

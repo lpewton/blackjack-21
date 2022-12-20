@@ -42,30 +42,32 @@ function backToGame() {
 function takeOne() {
 
     let cardNum = Math.floor(Math.random() * 52);
-    let playerHandDiv = document.getElementById("player-hand-div");
 
     if (usedCards.includes(cardNum)) {
         takeOne();
     } else {
+
         let card = document.createElement("img");
-        playerHandDiv.appendChild(card);
-        card.setAttribute("class" , "player-hand");
-        card.setAttribute('src', `assets/images/${cardNum}.png`);
+        let handDiv = document.getElementById("player-hand-div");
+
+        handDiv.appendChild(card);
 
         let numberOfCards = playerCards.length;
         let shift = numberOfCards * 50;
-        card.style.right = `${shift}px`;
+        card.style.right = `${shift}px`; //Gets cards stocked on top of each other by moving each of them 50px to the left
+        
+        card.setAttribute('src', `assets/images/${cardNum}.png`);
 
         usedCards.push(cardNum);
         playerCards.push(cardNum);
 
-        playerCards.sort();
+        playerCards.sort(); //This is so the As are counted last and program can determine wether they will have a value of 1 or 11
 
         if (computerValue < 17) {
         computerTakesOne();
-        }
+        } // Get computer to stop taking cards when value reaches 17
 
-        document.getElementById("fold").addEventListener ("click" , fold);
+        document.getElementById("stick").addEventListener ("click" , stick);
 
         countPlayerCards();
     }
@@ -74,7 +76,7 @@ function takeOne() {
 /**
  * Gives a card to computer and stores its value into an array
  */
- function computerTakesOne() {
+function computerTakesOne() {
     let card = Math.floor(Math.random()*52);
     let computerHandDiv = document.getElementById("computer-hand-div");
 
@@ -82,14 +84,14 @@ function takeOne() {
         if (usedCards.includes(card)) {
         computerTakesOne();
         } else {
-            let secondCard = document.createElement("img");
-            computerHandDiv.appendChild(secondCard);
-            secondCard.setAttribute("class" , "computer-hand");
-            secondCard.setAttribute('src', `assets/images/reverse.png`);
+            let computerCard = document.createElement("img");
+            computerHandDiv.appendChild(computerCard);
+            computerCard.setAttribute("class" , "computer-hand");
+            computerCard.setAttribute('src', `assets/images/reverse.png`);
 
             let numberOfCards = computerCards.length;
             let shift = numberOfCards * 50;
-            secondCard.style.right = `${shift}px`;
+            computerCard.style.right = `${shift}px`; //Gets cards stocked on top of each other by moving each of them 50px to the left
 
             usedCards.push(card);
             computerCards.push(card);
@@ -102,7 +104,7 @@ function takeOne() {
 /**
  * Counts the cards in the player's hand
  */
- function countPlayerCards() {
+function countPlayerCards() {
 
     playerValue = 0;
 
@@ -121,30 +123,14 @@ function takeOne() {
     }
 
     if (playerValue > 21) {
-      let takeOne = document.getElementById('take-one');
-      let fold = document.getElementById('fold');
-
-      takeOne.remove();
-      fold.remove();
-
-      let announcementDiv = document.getElementById("announcements-div");
-      let announcement = document.createElement("h1");
-      announcement.innerHTML = `Oh no! Your score is ${playerValue}... You lost!`;
-      announcementDiv.appendChild(announcement);
-
-      let restartButton = document.createElement("button");
-      announcement.appendChild(restartButton);
-      restartButton.setAttribute("id" , "restart-button");
-      restartButton.innerHTML = 'Retry <i class="fa-solid fa-arrows-spin"></i>';
-      
-      document.getElementById("restart-button").addEventListener ("click" , restartGame);
+        surpassed();
     }
 }
 
- /**
- * Counts the cards in the computer's hand
- */
-  function countComputerCards() {
+/**
+* Counts the cards in the computer's hand
+*/
+function countComputerCards() {
 
     computerValue = 0;
     computerCards.sort();
@@ -162,26 +148,15 @@ function takeOne() {
             computerValue = computerValue + 10;
         }
     }
-  }
+}
 
-  /**
-   * Gives out each player's score and determines the winner
-   */
-function fold() {
-    let takeOneButton = document.getElementById('take-one');
-    let foldButton = document.getElementById('fold');
-
-    takeOneButton.remove();
-    foldButton.remove();
-
-    for (let i = 0; i < computerCards.length; i++) {
-    let card = document.getElementsByClassName("computer-hand")[i];
-
-    card.setAttribute('src', `assets/images/${computerCards[i]}.png`);
-    }
-
-    let hand = document.getElementsByClassName("hand");
-    hand[0].style.alignItems = "center";
+/**
+* Gives out each player's score and determines the winner
+*/
+function stick() {
+    
+    removeButtons();
+    showComputerCards();
 
     let computerResult = document.getElementById("computer-value");
     computerResult.innerHTML = `${computerValue}`;
@@ -190,48 +165,95 @@ function fold() {
     playerResult.innerHTML = `${playerValue}`;
 
     if (computerValue > 21) {
-        computerResult.style.color = "black";
-        playerResult.style.color = "gold";
+        playerResult.className = "value-won";
+        computerResult.className = "value-lost";
     } else if (playerValue > computerValue){
-        computerResult.style.color = "black";
-        playerResult.style.color = "gold";
+        playerResult.className = "value-won";
+        computerResult.className = "value-lost";
     } else if (playerValue < computerValue) {
-        computerResult.style.color = "gold";
-        playerResult.style.color = "black";
+        playerResult.className = "value-lost";
+        computerResult.className = "value-won";
     } else if (playerValue === computerValue) {
-        computerResult.style.color = "gray";
-        playerResult.style.color = "gray";
+        playerResult.className = "value-draw";
+        computerResult.className = "value-draw";
     }
+
+    createAnnouncement();
 
     let announcementDiv = document.getElementById("announcements-div");
-    let announcement = document.createElement("h1");
-
+    let announcement = document.getElementById("announcement-heading");
     announcementDiv.style.border = "5px solid gold";
 
-    if (computerResult.style.color === "black") {
-        announcement.style.color = "gold";
-        announcement.innerHTML = `You won!`;
-        announcementDiv.appendChild(announcement);
-    }
-
-    if (computerResult.style.color === "gold") {
-        announcement.style.color = "";
+    if (computerResult.className === "value-won") {
         announcement.innerHTML = `You lost...`;
-        announcementDiv.appendChild(announcement);
-    }
-
-    if (computerResult.style.color === "gray") {
-        announcement.style.color = "gray";
+    } else if (computerResult.className === "value-draw") {
         announcement.innerHTML = `Draw!`;
-        announcementDiv.appendChild(announcement);
+    } else {
+        announcement.innerHTML = `You won!`;
     }
     
+    createRestartButton();
+}
+
+/**
+ * Removes take a card and stick buttons
+ */
+function removeButtons() {
+    let takeOne = document.getElementById('take-one');
+    let stick = document.getElementById('stick');
+  
+    takeOne.remove();
+    stick.remove();
+}
+
+/**
+ * Creates restart button
+ */
+function createRestartButton() {
+    let announcement = document.getElementById("announcement-heading");
     let restartButton = document.createElement("button");
+        
     announcement.appendChild(restartButton);
     restartButton.setAttribute("id" , "restart-button");
     restartButton.innerHTML = 'Retry <i class="fa-solid fa-arrows-spin"></i>';
-
+          
     document.getElementById("restart-button").addEventListener ("click" , restartGame);
+    }
+
+/**
+ * Removes buttons and stops game
+ */
+function surpassed() {
+    
+    removeButtons();
+    createAnnouncement();
+
+    let announcement = document.getElementById("announcement-heading");
+    announcement.innerHTML = `Oh no! Your score is ${playerValue}... You lost!`;
+
+    createRestartButton();
+}
+
+/**
+ * Creates an announcement div as a placeholders
+ */
+function createAnnouncement() {
+    let announcementDiv = document.getElementById("announcements-div");
+    let announcement = document.createElement("h1");
+    announcement.setAttribute("id" , "announcement-heading");
+    announcementDiv.appendChild(announcement);
+}
+
+/**
+ * Shows the value of computer's card
+ */
+function showComputerCards() {
+    for (let i = 0; i < computerCards.length; i++) {
+        let computerCard = document.getElementsByClassName("computer-hand")[i];
+    
+        computerCard.setAttribute('src', `assets/images/${computerCards[i]}.png`);
+        }
+    
 }
 
 /**

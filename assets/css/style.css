@@ -3,11 +3,9 @@
 body {
     font-family: 'Raleway', sans-serif;
     background-color: #134713;
-    z-index: 4;
 }
 
 #rules-button {
-    background-color: black;
     color: white;
     font-size: large;
     text-decoration: none;
@@ -17,7 +15,6 @@ body {
     top: 20px;
 }
 
-
 #rules-button:hover {
     background-color: white;
     color: black;
@@ -26,7 +23,7 @@ body {
 #rules-div {
     width: 50vw;
     text-align: center;
-    background-color: #A31621;
+    background-color: gold;
     position: fixed;
     margin-top: 50px;
     margin-left: 25vw;
@@ -39,13 +36,9 @@ body {
     border: solid 10px;
 }
 
-ul {
-    list-style: none;
-}
-
 #deck {
     position: absolute;
-    bottom: 360px;
+    bottom: 290px;
     left: 10%;
 }
 
@@ -94,21 +87,26 @@ button:hover {
     background-color: rgb(97, 97, 11);
 }
 
-#computer-value {
+.value-won {
+    color: gold;
     position: absolute;
     left: 78%;
-    width: fit-content;
     font-size: 500%;
-    margin: 0px;
     padding: 0px 5px;
 }
 
-#player-value {
+.value-lost {
     position: absolute;
     left: 78%;
-    width: fit-content;
     font-size: 500%;
-    margin: 0px;
+    padding: 0px 5px;
+}
+
+.value-draw {
+    color: gray;
+    position: absolute;
+    left: 78%;
+    font-size: 500%;
     padding: 0px 5px;
 }
 
