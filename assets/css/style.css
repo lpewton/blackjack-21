@@ -11,8 +11,7 @@ body {
     text-decoration: none;
     padding: 7px;
     border-radius: 20%;
-    position: relative;
-    top: 20px;
+    margin-top: 15px;
 }
 
 #rules-button:hover {
@@ -36,10 +35,14 @@ body {
     border: solid 10px;
 }
 
-#deck {
-    position: absolute;
-    bottom: 290px;
-    left: 10%;
+#game-name {
+    color: gold;
+    font-size: 300%;
+    border: solid 2px gold;
+    width: fit-content;
+    margin: auto;
+    margin-top: 10px;
+    padding: 0px 5px;
 }
 
 .hand {
@@ -87,35 +90,49 @@ button:hover {
     background-color: rgb(97, 97, 11);
 }
 
+.announcement-surpassed {
+    font-size: 150%;
+    padding: 5px;
+}
+
+.announcement {
+    font-size: 150%;
+    padding-left: 5px;
+}
+
+#restart-button {
+    font-size: 70%;
+}
+
+/*Determines value color if you win*/
 .value-won {
     color: gold;
     position: absolute;
     left: 78%;
     font-size: 500%;
-    padding: 0px 5px;
+    margin-left: 10px;
 }
 
+/*Determines value color if you lose*/
 .value-lost {
     position: absolute;
     left: 78%;
     font-size: 500%;
-    padding: 0px 5px;
+    margin-left: 10px;
 }
 
+/*Determines value color if you draw*/
 .value-draw {
     color: gray;
     position: absolute;
     left: 78%;
     font-size: 500%;
-    padding: 0px 5px;
+    margin-left: 10px;
 }
 
 /*Add responsiveness*/
 
 @media (max-width: 1150px) {
-    #deck {
-        visibility: hidden;
-    }
 
     img {
         height: 130px;
@@ -154,10 +171,14 @@ button:hover {
 }
 
 @media (max-width: 800px) {
-    
+
+    #game-name {
+        font-size: 200%;
+    }
     .hand {
         height: 120px;
     }
+
     img {
         height: 110px;
         width: 70px;
@@ -172,6 +193,7 @@ button:hover {
     .hand {
         height: 100px;
     }
+
     img {
         height: 99px;
         width: 70px;
