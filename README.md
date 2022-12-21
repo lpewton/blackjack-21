@@ -1,24 +1,27 @@
 # Blackjack 21:
 This is a game of Blackjack 21, the classic card game played at casinos and game nights.
 
-The basic objective of this game is to get your card value closer to 21 than your player, but without surpassing it. 
+The basic objective of this game is to get your card value closer to 21, or get to 21, before your opponent, but without surpassing it. 
 
 You can play this game with the computer and within it, you can also learn its rules.
 
-![Screen Shot 2022-12-20 at 00 18 59](https://user-images.githubusercontent.com/114712846/208546774-ac63ca79-50bf-458f-8a67-840e296e0345.png)
+![Screen Shot 2022-12-21 at 01 09 56](https://user-images.githubusercontent.com/114712846/208790632-4d9f4284-edfa-4309-9849-50c5490d753d.png)
 
 ## Features:
 * **Rules:**
 This contains a "How to play" button which makes a division appear and disappear. 
 
-  * **Rules Division:** This division shows the rules of the game, and can be opened and closed at any point.
-
-![Screen Shot 2022-12-20 at 00 08 26](https://user-images.githubusercontent.com/114712846/208545606-38ef231a-d2de-4961-8d6b-c9898e24d045.png)
-
-  * **Rules Division:** This opens and closes the rules division, button changes depending on if division is open or closed.
+  * **Rules Division and Rules button:** This division shows the rules of the game, and can be opened and closed at any point. The buttons open and close the rules division, it changes depending on if division is open or closed.
+  
+![Screen Shot 2022-12-21 at 00 47 18](https://user-images.githubusercontent.com/114712846/208787756-eb17e820-da67-42b5-8e0f-9ca249838ecd.png)
 
 ![Screen Shot 2022-12-19 at 13 10 51](https://user-images.githubusercontent.com/114712846/208423289-e7bda856-1366-474a-bf2a-d7fc4a05b0c9.png)
 ![Screen Shot 2022-12-19 at 13 06 57](https://user-images.githubusercontent.com/114712846/208422585-db76ec9f-1bcc-4d89-95b8-81ead1f719fe.png)
+
+* **Game header:**
+This contains the name of the game: Blackjack. This way, the user knows exactly what game he is playing as soon as he enters.
+
+![Screen Shot 2022-12-21 at 01 12 14](https://user-images.githubusercontent.com/114712846/208790902-e0e562b7-5cbc-4100-9fed-f809049a7265.png)
 
 * **Computer's hand:**
 This contains the cards that are dealt to the computer, though it only shows the reverse until the player decides to fold, and then it displays the value of the computer's hand.
@@ -58,7 +61,7 @@ This contains the cards that are dealt to the player. This time it shows the car
 
 * HTML: No errors were found when passing the code through the official W3C validator.
 * CSS: No errors were found when passing the code through the official W3C validator.
-* Accessibility: Tested the results throught the  Lighthouse test, all of the attributes are high due to the simplicity of the game and the use of javascript to make actions. 
+* Accessibility: Tested the results throught the  Lighthouse test, all of the attributes are high and can be found below:
 
 ![Screen Shot 2022-12-19 at 23 59 36](https://user-images.githubusercontent.com/114712846/208543407-61b77d43-4e09-4960-9e52-957e00d10a4b.png)
 
@@ -72,8 +75,8 @@ You can find the link here: https://lpewton.github.io/blackjack-21/
 
 ## Credits:
 ### Media:
-* The card images were all extracted from Google Images
+* The card images were all extracted from Google Images.
 
 ## Acknowledgements:
 * I would like to thank my tutor for giving me support and help throughout the project.
-* I would like to thank my friends and my family for helping me with the design and coloring of the website
+* I would like to thank my friends and my family for helping me with the design and coloring of the website.
